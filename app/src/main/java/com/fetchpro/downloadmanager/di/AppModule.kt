@@ -58,6 +58,11 @@ object AppModuleProvides {
 
     @Provides
     @Singleton
+    fun provideOkHttpClient(httpClientProvider: HttpClientProvider): okhttp3.OkHttpClient =
+        httpClientProvider.client
+
+    @Provides
+    @Singleton
     fun provideSpeedLimiterManager(): com.fetchpro.downloadmanager.download.limiter.SpeedLimiterManager =
         com.fetchpro.downloadmanager.download.limiter.SpeedLimiterManager()
 
